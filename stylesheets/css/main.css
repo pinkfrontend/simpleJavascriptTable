@@ -1,0 +1,22 @@
+.xbutton {
+  background: transparent;
+  border: none; }
+
+.wf-jobs {
+  margin: 18px 0 0 0; }
+
+.mainTr {
+  background: #009688;
+  color: #fff; }
+
+select.form-control {
+  display: inline; }
+
+.price {
+  display: block;
+  width: 100px; }
+
+.margin-80 {
+  margin-bottom: 80px; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,17 @@
+@import '../helpers/helpers';
+
+.wf-jobs {
+	margin: 18px 0 0 0;
+}
+.mainTr {
+	background: $primary-color;
+	color: $white;
+}
+select.form-control {
+	display: inline;
+	width: 200px;
+}
+.price {
+	display: block;
+	width: 100px;
+}

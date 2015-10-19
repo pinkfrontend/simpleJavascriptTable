@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="stylesheets/css/main.css">
+
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.js"></script>
+	<script src="data.js"></script>
+	<script src="main3.js"></script>
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1>Simple Table With Javascript</h1>
+				<div class="margin-80"></div>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<h5>Workflows</h5>
+				<select id="workflows" class="wf-select single form-control"></select>
+				<button id="addWorkflow" class="btn btn-default">Add workflow</button>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<h5>Jobs</h5>
+				<select id="jobs" class="job-select single form-control"></select>
+				<button id="addJobs" class="btn btn-default">Add Job</button>
+			</div>
+
+			<div class="col-xs-12 col-md-12">
+				<div class="margin-80"></div>
+				<script id="tpl" type="text/x-handlebars-template">
+					<form action="" id="myForm">
+						<tr id="{{id}}" class="workflow_tr">
+						
+								<td>
+									<strong>{{title}}</strong>
+									<div class="wf-jobs" id="{{id}}_job"></div>
+								</td>
+								
+							
+							<td>
+								<button class="btnNotes btn btn-default" data-toggle="modal" data-target="#myModal">Notes</button>
+							</td>
+							<td>
+								<button class="btnRemove btn btn-default" data-id="{{id}}" >Remove</button>
+								<button class="btnClearJobs btn btn-default" data-jobid="{{id}}_job">Clear Jobs</button>
+							</td>
+						</tr>
+						
+
+					</form>	
+				</script>
+
+				<table id="workflowsView" class="table table-striped">
+					<thead>
+						<tr class="mainTr">
+							<td>Workflow</td>
+							<!-- <td>Price</td> -->
+							<td>Notes</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+
+				<button id="submitMyForm" class="btn btn-default">Submit</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Notes</h4>
+	      </div>
+	      <div class="modal-body">
+	        <textarea name="notes" id="textareaNotes" class="form-control" rows="4"></textarea>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<script>
+
+		var workflows = document.querySelector('#workflows'); // select
+		var addWorkflow = document.querySelector('#addWorkflow'); // button
+
+		var jobs = document.querySelector('#jobs'); // select
+		var addJob = document.querySelector('#addJobs'); // button
+
+		var view = document.querySelector('#workflowsView'); // workflows view
+	
+		// app init
+		init();
+		
+		
+	</script>
+</body>
+</html>
